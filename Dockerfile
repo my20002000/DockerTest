@@ -1,6 +1,6 @@
 FROM centos:7
 
-RUN yum install epel-release \
+RUN yum install epel-release -y \
     && yum clean all \
     && yum makecache fast \
     && yum install yum-utils axel git make gcc mesa-libGL -y \
