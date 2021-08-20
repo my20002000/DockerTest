@@ -1,10 +1,9 @@
 FROM centos:7
 
-RUN yum install epel-release -y \
-    && yum clean all \
+RUN yum clean all \
     && yum makecache fast \
-    && yum install yum-utils axel git make gcc mesa-libGL -y \
-    && axel -q -o /miniconda.sh https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+    && yum install yum-utils git make gcc mesa-libGL openssl-devel wget -y \
+    && wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /miniconda.sh \
     && chmod +x /miniconda.sh \
     && /miniconda.sh -b -p /miniconda \
     && rm /miniconda.sh 
